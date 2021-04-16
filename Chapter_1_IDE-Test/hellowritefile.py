@@ -17,7 +17,7 @@ def write_expected(output_file, output_prefix):
 
     with open(output_file_final, "w+") as out:
         for count, text, in enumerate(range(10)):
-            out.write( "Content of the" + str(count) + " row of the new file" + "\n")
+            out.write( "Content of the " + str(count) + " row of the new file" + "\n")
 
 write_expected(output_file, output_prefix)
 
