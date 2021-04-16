@@ -1,7 +1,8 @@
 import sys
+import os
 import logging
 
-logging.basicConfig(filename='Chapter_1_IDE-Test/hello_write_logfile.log',level=logging.INFO)
+logging.basicConfig(filename=os.path.join('Chapter_1_IDE-Test','hello_write_logfile.log'),level=logging.INFO)
 logging.debug('This message should go to the log file if level is set to DEBUG')
 logging.info('This message only should go to the log file if level is set to INFO')
 
