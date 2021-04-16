@@ -12,7 +12,7 @@ def cube(x):
     z = x * x * x
     return z
 
-myNum = 10
+myNum = 1
 toAdder = myNum
 toSquare = myNum + 2
 toCube = myNum
