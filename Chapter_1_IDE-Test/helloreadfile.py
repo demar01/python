@@ -1,3 +1,7 @@
+"""First approach:
+I can read this file with csv.reader.
+"""
+
 import urllib.request as request
 import csv
 r = request.urlopen('https://raw.githubusercontent.com/codeforamerica/ohana-api/master/data/sample-csv/addresses.csv').read().decode('utf8').split("\n")
@@ -6,8 +10,10 @@ print(reader)
 for line in reader:
     print(line)
 
+"""Second approach:
+I can also read this file with pandas.
+"""
 
-"""I can also read this file with pandas."""
 import pandas as pd
 import io
 import requests
@@ -18,7 +24,9 @@ c=pd.read_csv(io.StringIO(s.decode('utf-8')))
 print(c)
 print(type(c)) #<class 'pandas.core.frame.DataFrame'>
 
-"""I can also read this file with with Python’s built-in open() function."""
+"""Third approach:
+I can also read this file with with Python’s built-in open() function.
+"""
 import csv
 
 with open('Chapter_1_IDE-Test/employee_birthday.txt') as csv_file:
@@ -32,3 +40,8 @@ with open('Chapter_1_IDE-Test/employee_birthday.txt') as csv_file:
             print(f'\t{row[0]} works in the {row[1]} department, and was born in {row[2]}.')
             line_count += 1
     print(f'Processed {line_count} lines.')
+
+
+    f = open("demofile2.txt", "a")
+f.write("Now the file has more content!")
+f.close()
