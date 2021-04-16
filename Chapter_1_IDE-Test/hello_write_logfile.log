@@ -1,1 +1,1 @@
-INFO:root:This message  only  should go to the log file if level is set to INFO
+INFO:root:This message only should go to the log file if level is set to INFO
