@@ -26,7 +26,33 @@ print(params$text)
 #reticulate::py_run_file('/Users/dermit01/Documents/python/Chapter_5_Python_R/add.py')
 source_python('/Users/dermit01/Documents/python/Chapter_5_Python_R/add.py')
 add(5, 10)
+suma <-add(5,10)
+class(suma)
 ```
+Note that once that is source into R,  the new object is now an R object!
+
+```{r}
+py_run_string("print('hi there, printing with py_run_string')")
+py_run_string("x=100")
+py$x
+py_run_string("dic1= {'A':1,'B':2}")
+py$dic1
+```
+# Seamless dictionary creation
+
+Create a dictionary in a more Rish way
+```{r}
+dic1 = py_dict(keys=c('A','B','C'), values=c(1,2,3))
+dic1
+dic1$A
+
+py_to_r(dic1)
+```
+Note that the output looks like the pythonic way to represent a dictionary
+
+
+
+
 
 ```{r}
 # import numpy and specify no automatic Python to R conversion
@@ -77,9 +103,7 @@ Interestingly all rows are printed (I guess is to be explict?) but I can limit t
 subset. Remember python starts with 0 index. 
 We can do inline python code with ** py$**. For example the number of afircan regions is `r py$african_regions`
 
-```{python}
-
-```
+For additional exaples see https://github.com/ttimbers/breast_cancer_predictor/blob/108694bc60bfb4d0be94a93b4d0a0bc1a521b8d3/src/reticulate_fit_breast_cancer_predict_model.R
 
 
 
