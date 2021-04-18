@@ -1,0 +1,66 @@
+---
+title: "My Reticulate documentation "
+output: pdf_document
+params:
+    text: "Hi!"
+---
+
+```{r}
+library(reticulate)
+use_python("/usr/local/bin/python3")
+reticulate::py_config()
+```
+```{r}
+# `use_virtualenv()` and `use_condaenv()` 
+#functions enable specification of versions of Python in virtual or conda environments, fe:
+#use_virtualenv("myenv")
+```
+
+
+# Parametric reports (parameters are passed in Reticulate.R file)
+```{r}
+print(params$text)
+```
+# Source a file to access a module
+```{r}
+#reticulate::py_run_file('/Users/dermit01/Documents/python/Chapter_5_Python_R/add.py')
+source_python('/Users/dermit01/Documents/python/Chapter_5_Python_R/add.py')
+add(5, 10)
+```
+
+```{r}
+# import numpy and specify no automatic Python to R conversion
+np <- import("numpy", convert = FALSE)
+#plt <- import("matplotlib.pyplot",convert = FALSE)
+# do some array manipulations with NumPy
+a <- np$array(c(1:4))
+sum <- a$cumsum()
+# convert to R explicitly at the end
+py_to_r(sum)
+
+```
+
+```{python libraries}
+import pandas as pd
+import io
+import requests
+```
+
+```{python data}
+url="https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv"
+s=requests.get(url).content
+df=pd.read_csv(io.StringIO(s.decode('utf-8')))
+print(df.head(3))
+```
+
+#Acess the python environment with py$
+
+```{r}
+library(ggplot2)
+ggplot(py$df, aes(x=Region))+
+    geom_bar()
+```
+
+
+
+
