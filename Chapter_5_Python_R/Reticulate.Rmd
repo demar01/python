@@ -53,13 +53,36 @@ df=pd.read_csv(io.StringIO(s.decode('utf-8')))
 print(df.head(3))
 ```
 
-#Acess the python environment with py$
+# Access the python environment with py$
 
 ```{r}
 library(ggplot2)
 ggplot(py$df, aes(x=Region))+
     geom_bar()
 ```
+
+# Subsetting data in python
+#See 43 min https://www.youtube.com/watch?v=U3ByGh8RmSc
+```{python}
+#to select columns
+print(df[["Region"]])
+```
+Interestingly only 10 rows will be printed. 
+```{python}
+#to filter row
+print(df[df['Region']=="AFRICA"][0:3])
+african_regions= df[df['Region']=="AFRICA"].shape[0]
+```
+Interestingly all rows are printed (I guess is to be explict?) but I can limit the number of printed statement by doing 
+subset. Remember python starts with 0 index. 
+We can do inline python code with ** py$**. For example the number of afircan regions is `r py$african_regions`
+
+```{python}
+
+```
+
+
+
 
 
 
