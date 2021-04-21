@@ -1,4 +1,4 @@
-from palindrome import is_palindrome
+from palindrome import load_dictionary, is_palindrome, get_longest_palindrome
 
 
 def test_is_palidrome():
@@ -17,3 +17,13 @@ def test_is_palidrome():
 
 
 test_is_palidrome()
+
+def test_get_longest_palindrome():
+    words = load_dictionary()
+    assert get_longest_palindrome() == 'malayalam'
+
+    new_longest = 'A car, a man, a maraca.'
+    words = list(words) + [new_longest]
+    assert get_longest_palindrome(words) == new_longest
+
+test_get_longest_palindrome()
