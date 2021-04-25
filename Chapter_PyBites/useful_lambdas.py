@@ -35,3 +35,23 @@ print(square_nums)
 #check if startswith
 starts_with = lambda x: True if x.startswith('P') else False
 print(starts_with('Python'))
+
+#with reduce to do an operation with all the elements of a list
+from functools import reduce
+li = [5, 8, 10, 20, 50, 100]
+sum = reduce((lambda x, y: x + y), li)
+sum = reduce((lambda x, y: x - y), li)
+print (sum)
+
+#finding intersections
+array_nums1 = [1, 2, 3, 5, 7, 8, 9, 10]
+array_nums2 = [1, 2, 4, 8, 9]
+result = list(filter(lambda x: x in array_nums1, array_nums2)) 
+print ("\nIntersection of the said arrays: ",result)
+
+#count even and odds
+array_nums = [1, 2, 3, 5, 7, 8, 9, 10]
+odd_ctr = len(list(filter(lambda x: (x%2 != 0) , array_nums)))
+even_ctr = len(list(filter(lambda x: (x%2 == 0) , array_nums)))
+print("\nNumber of even numbers in the above array: ", even_ctr)
+print("\nNumber of odd numbers in the above array: ", odd_ctr)
