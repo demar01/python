@@ -16,7 +16,7 @@ keep enjoying our bites!
 """
 punctuations='!.'
 
-def split_slice(text=text):
+def split_slice (text=text):
     lines=text.strip().split("\n")
     results=[]
     for line in lines:

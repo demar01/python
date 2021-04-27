@@ -55,3 +55,21 @@ odd_ctr = len(list(filter(lambda x: (x%2 != 0) , array_nums)))
 even_ctr = len(list(filter(lambda x: (x%2 == 0) , array_nums)))
 print("\nNumber of even numbers in the above array: ", even_ctr)
 print("\nNumber of odd numbers in the above array: ", odd_ctr)
+
+
+#remove words
+words=['orange', 'red', 'green', 'blue', 'white', 'black']
+toremove=['orange', 'black']
+filtered_words = list(filter(lambda x: x not in toremove , words))
+print("Words after filtering: ", filtered_words)
+
+#remove none
+words= [12, 0, None, 23, None, -55, 234, 89, None, 0, 6, -12]
+filtered_words = list(filter(lambda x: x !=None , words))
+print("Words after filtering: ", filtered_words)
+
+mylist=[3, 4, 5, 8, 0, 3, 8, 5, 0, 3, 1, 5, 2, 3, 4, 2]
+
+map(lambda element: element, list(nums).count(element)), nums)
+
+     
