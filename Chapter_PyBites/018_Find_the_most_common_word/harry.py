@@ -1,5 +1,5 @@
 from collections import Counter
-from urllib import request
+import urllib.request
 import os
 import re
 
