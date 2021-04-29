@@ -35,11 +35,7 @@
 
 # greet("Bob")
 
-
-
-
-
-from functools
+import functools
 
 UPPER_SLICE = "=== Upper bread slice ==="
 LOWER_SLICE = "=== Lower bread slice ==="
@@ -63,6 +59,6 @@ def sandwich(func):
 def add_ingredients(ingredients):
     print(' / '.join(ingredients))
 
-ingredients = ['bacon', 'lettuce', 'tomato']
-add_ingredients(ingredients)
+# ingredients = ['bacon', 'lettuce', 'tomato']
+# add_ingredients(ingredients)
 
