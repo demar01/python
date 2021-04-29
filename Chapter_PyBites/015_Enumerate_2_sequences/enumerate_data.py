@@ -12,5 +12,5 @@ def generator():
 
 def enumerate_name_countries():
         for i, (name, country) in generator():
-           
+           print(f'{i+1}. {name:<11}{country}')
             
