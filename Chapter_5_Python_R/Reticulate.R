@@ -1,4 +1,4 @@
-rmarkdown::render ( "Chapter_5_Python_R/Reticulate.Rmd" , params = list ( text = "Hola!" ) )
+rmarkdown::render ( "Chapter_5_Python_R/Reticulate. " , params = list ( text = "Hola!" ) )
 
 #on shell  Rscript Chapter_5_Python_R/Reticulate.R
 
