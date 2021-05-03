@@ -36,3 +36,42 @@ def test_get_slice_inclusive(float_series):
     assert isinstance(slce, pd.core.series.Series)
     assert len(slce) == 6
     assert slce[25] == 0.025
+
+@pytest.mark.parametrize("arg, expected", [
+    (0, 0.000), (5, 0.005), (9, 0.009)
+])
+def test_return_head(float_series, arg, expected):
+    assert se.return_head(float_series, 10)[arg] == expected
+    assert ".head" in inspect.getsource(se.return_head)
+
+@pytest.mark.parametrize("arg, expected", [
+    (991, 0.991), (995, 0.995), (1000, 1.000)
+])
+def test_return_tail(float_series, arg, expected):
+    assert se.return_tail(float_series, 10)[arg] == expected
+    assert ".tail" in inspect.getsource(se.return_tail)
+
+def test_get_index(alpha_series):
+    idx = se.get_index(alpha_series)
+    assert isinstance(idx, pd.core.indexes.base.Index)
+    assert len(idx) == 26
+    assert all(c in string.ascii_lowercase for c in idx.values)
+    assert ".index" in inspect.getsource(se.get_index)
+
+
+def test_get_values(alpha_series):
+    vals = se.get_values(alpha_series)
+    assert isinstance(vals, np.ndarray)
+    assert len(vals) == 26
+    assert all(c in range(1, 27) for c in vals)
+
+def test_all_even_indexes_returned(float_series):
+    ser = se.get_every_second_indexes(float_series, True)
+    assert all(n % 2 == 0 for n in ser.index)
+    assert round(sum(ser), 1) == 250.5
+
+
+def test_all_odd_indexes_returned(float_series):
+    ser = se.get_every_second_indexes(float_series, False)
+    assert all(n % 2 == 1 for n in ser.index)
+    assert round(sum(ser), 1) == 250.0
