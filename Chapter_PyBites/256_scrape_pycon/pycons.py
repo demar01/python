@@ -111,6 +111,7 @@ def get_pycon_events(data=_get_pycon_data()) -> List[PyCon]:
     for entry in soup.find_all('script', type='application/ld+json'):
         event = json.loads(entry.get_text().strip())
         if event['name'].startswith('PyCon'):
+            #append namedtuple to list
             result.append(
                 PyCon(name=event['name'],
                 city=event['location']['address']['addressLocality'],
