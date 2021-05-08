@@ -20,3 +20,7 @@ getgo("Q65N65")
 
 # [r for r in record.cross_references]
 # go=([r[2].split(":")[1] for r in record.cross_references if r[0] == "GO" and r[2].startswith('P')])
+
+
+#https://github.com/Shivi91/Rosalind-1/blob/master/Armory_002_DBPR.py
+#https://github.com/adelq/rosalind/blob/master/DBPR.py
