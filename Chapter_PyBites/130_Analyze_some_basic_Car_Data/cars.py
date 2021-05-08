@@ -1,5 +1,3 @@
-
-
 cars=[{"id":1,"automaker":"Dodge","model":"Ram Van 1500","year":1999},\
     {"id":2,"automaker":"Chrysler","model":"Town & Country","year":1999},\
         {"id":3,"automaker":"Porsche","model":"Cayenne","year":1999},\

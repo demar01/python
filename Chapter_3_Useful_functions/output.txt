@@ -1,0 +1,11 @@
+total 280
+drwxr-xr-x   8 dermit01  1286364195     256 16 Apr 14:29 Chapter_1_IDE-Test
+drwxr-xr-x   4 dermit01  1286364195     128 16 Apr 14:31 Chapter_2_Recursion_vs_iteration
+drwxr-xr-x   9 dermit01  1286364195     288 20 Apr 19:15 Chapter_3_Useful_functions
+drwxr-xr-x   9 dermit01  1286364195     288 19 Apr 07:29 Chapter_4_third_layer
+drwxr-xr-x   7 dermit01  1286364195     224 18 Apr 15:32 Chapter_5_Python_R
+drwxr-xr-x  11 dermit01  1286364195     352 20 Apr 11:49 Chapter_6_sklearn
+drwxr-xr-x   7 dermit01  1286364195     224 20 Apr 18:05 Chapter_7_Bioinfo
+-rw-r--r--   1 dermit01  1286364195       9 16 Apr 11:42 README.md
+-rw-r--r--   1 dermit01  1286364195  137813 20 Apr 17:40 m_cold_blast.out
+-rw-r--r--   1 dermit01  1286364195       0 20 Apr 17:34 shuffled.fasta

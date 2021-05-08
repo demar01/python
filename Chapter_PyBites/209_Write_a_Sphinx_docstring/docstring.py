@@ -11,3 +11,6 @@ def sum_numbers(numbers):
     :rtype: int
     """
     pass
+
+
+#Note that here sum_numbers.__annotations__ is an empty dictionary
