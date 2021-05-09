@@ -1,6 +1,6 @@
 import csv
 from collections import OrderedDict
-
+from collections import Counter
 import requests
 
 CSV_URL = 'https://bites-data.s3.us-east-2.amazonaws.com/community.csv'
@@ -24,6 +24,7 @@ def create_user_bar_chart(content):
         print("{0:21}| {1}".format(tz, "+" * counter))
 
 
-content= get_csv()
-timezones = OrderedDict()
-timezones=Counter([row["tz"] for row in csv.DictReader(content)])
+
+# content= get_csv()
+# timezones = OrderedDict()
+# timezones=Counter([row["tz"] for row in csv.DictReader(content)])
