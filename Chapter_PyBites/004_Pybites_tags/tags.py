@@ -1,4 +1,5 @@
 import os
+import re
 from collections import Counter
 import urllib.request
 import xml.etree.ElementTree as ET
