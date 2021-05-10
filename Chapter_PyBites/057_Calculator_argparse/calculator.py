@@ -65,3 +65,6 @@ def call_calculator(args=None, stdout=False):
 
 if __name__ == '__main__':
     call_calculator(stdout=True)
+
+
+#python3 Chapter_PyBites/057_Calculator_argparse/calculator.py --add 1 2 3
