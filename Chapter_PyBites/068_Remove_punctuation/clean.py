@@ -12,3 +12,5 @@ def remove_punctuation(input_string):
 # print(txt.translate(mytable))
 
 # remeber the pairing maketrans and translate in https://www.w3schools.com/python/ref_string_maketrans.asp
+
+

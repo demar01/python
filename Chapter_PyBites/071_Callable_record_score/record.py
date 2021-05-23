@@ -6,4 +6,3 @@ class RecordScore:
         if not self.max_score or score > self.max_score: #in the first call self.max_score gets the value of score, and from now on the max_score gets recorded. 
             self.max_score = score
         return self.max_score
-

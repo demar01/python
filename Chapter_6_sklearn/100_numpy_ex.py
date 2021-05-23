@@ -44,4 +44,61 @@ print(Z)
 
 #sum a small array faster than np.sum
 Z = np.arange(10)
+sum(Z)
 np.add.reduce(Z)
+
+#flags
+Z = np.zeros(10)
+Z.flags.writeable = False
+Z[0] = 1
+
+# replace the maximum value by 0
+Z = np.random.random(10)
+Z[Z.argmax()] = 0
+
+
+
+
+unique_labels = set(labels)
+colors = [plt.cm.Spectral(each) for each in np.linspace(0, 1, len(unique_labels))]
+for k, col in zip(unique_labels, colors):
+    if k == -1:
+        # Black used for noise.
+        col = [0, 0, 0, 1]
+
+    class_member_mask = (labels == k)
+
+    xy = X[class_member_mask & core_samples_mask]
+    plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col),
+             markeredgecolor='k', markersize=14)
+
+    xy = X[class_member_mask & ~core_samples_mask]
+    plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col),
+             markeredgecolor='k', markersize=6)
+
+
+
+
+for k, col in zip(unique_labels, colors):
+    if k == -1:
+        # Black used for noise.
+        col = [0, 0, 0, 1]
+    
+    class_member_mask = (labels == k)
+    xy = X[class_member_mask & core_samples_mask]
+    plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col),markeredgecolor='k', markersize=14)
+    xy = X[class_member_mask & ~core_samples_mask]
+    plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col),
+            markeredgecolor='k', markersize=6)
+
+plt.title('Estimated number of clusters: %d' % n_clusters_)
+plt.show()
+
+
+np.dot(3, 4) #12
+
+#np.where is a bit like ifelse
+result = np.where(arr > 12,
+                  ['High', 'High', 'High', 'High'],
+                  ['Low', 'Low', 'Low', 'Low'])
+print(result)

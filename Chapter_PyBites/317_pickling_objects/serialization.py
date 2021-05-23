@@ -41,5 +41,5 @@ def serialize(pkl_file: Path = PICKLE_OUTFILE,
         pickle.dump(data, f)
 
 
-download_pickle_file()
-print(deserialize())
+# download_pickle_file()
+# print(deserialize())

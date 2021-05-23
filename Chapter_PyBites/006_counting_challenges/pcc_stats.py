@@ -1,5 +1,6 @@
 from collections import Counter, namedtuple
-import os
+import os 
+import re 
 import urllib.request
 
 # prep
@@ -11,6 +12,9 @@ urllib.request.urlretrieve(
 )
 
 IGNORE = 'static templates data pybites bbelderbos hobojoe1848'.split()
+
+users, popular_challenges = Counter(), Counter()
+
 
 Stats = namedtuple('Stats', 'user challenge')
 
