@@ -24,6 +24,19 @@ def has_word_with_dashes(text):
     if re.search(pattern, text):
         return True
 
+def remove_all_parenthesis_words(text):
+    """Return text but without any words or phrases in parenthesis:
+       'Good morning (afternoon)' -> 'Good morning' (so don't forget
+       leading spaces)"""
+    pattern = r"\s?\(.*?\)" #will match parenthesis, whatever is inside them and any previous whitespace
+    return re.sub(pattern, "", text)
+
+
+def remove_duplicate_spacing(text):
+    """Replace multiple spaces by one space"""
+    pattern = r"\s{2,}"
+    return re.sub(pattern, " ", text)
+
 
 
 # re.search("^The.*Spain$","The rain in Spain") 
@@ -33,3 +46,4 @@ def has_word_with_dashes(text):
 # re.findall("Portugal","The rain in Spain")
 # print("The first white-space character is located in position:", re.search("\s", "The rain in Spain").start())
 
+#re.sub(' {2,}', ' ', 'The     quick brown    fox')
