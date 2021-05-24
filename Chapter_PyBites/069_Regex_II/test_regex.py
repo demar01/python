@@ -1,5 +1,5 @@
   
-from regex import (has_timestamp, is_integer)
+from regex import (has_timestamp, is_integer,has_word_with_dashes)
 
 
 def test_has_timestamp():
@@ -14,3 +14,9 @@ def test_is_integer():
     assert is_integer(-1)
     assert not is_integer('str')
     assert not is_integer(1.1)
+
+def test_has_word_with_dashes():
+    assert has_word_with_dashes('this Bite is self-contained')
+    assert has_word_with_dashes('the match ended in 1-1')
+    assert not has_word_with_dashes('this Bite is not selfcontained')
+    assert not has_word_with_dashes('the match ended in 1- 1')

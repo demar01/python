@@ -17,3 +17,19 @@ def is_integer(number):
         return True
 
 # is_integer(1)
+
+def has_word_with_dashes(text):
+    """Returns True if text has one or more words with dashes"""
+    pattern = r"\S-\S"
+    if re.search(pattern, text):
+        return True
+
+
+
+# re.search("^The.*Spain$","The rain in Spain") 
+# . Any character (except newline character) 
+# * Zero or more occurrences
+# re.findall("ai", "The rain in Spain")
+# re.findall("Portugal","The rain in Spain")
+# print("The first white-space character is located in position:", re.search("\s", "The rain in Spain").start())
+
