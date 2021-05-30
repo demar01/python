@@ -54,6 +54,7 @@ def depth_first_traversal_io(node):
 depth_first_traversal_io(root)
 
 #post order transversal returns [3,2,2,1]
+#po is used in algorithms that allows you do delete all the children before deleting any parents. prevents creating orphans
 
 def depth_first_traversal_po(node):
     if node == None:
@@ -62,5 +63,5 @@ def depth_first_traversal_po(node):
     depth_first_traversal_po(node.right)
     print(node.value) #operating on the value last
 
-    
+
 depth_first_traversal_po(root)
