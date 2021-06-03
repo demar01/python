@@ -18,3 +18,4 @@ def isValid(str):
 
 # s = "(]"
 # isValid(s)
+# solving this problem with a stack https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/
