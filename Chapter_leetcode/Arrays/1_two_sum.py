@@ -1,7 +1,7 @@
 class Solution(object):
-def twoSum(self, nums, target):
-    dic = {}
-    for i, n in enumerate(nums): 
-        if n in dic:
-            return [dic[n], i]
-        dic[target-n] = i
+    def twoSum(self, nums, target):
+        index = {}
+        for i, x in enumerate(nums):
+            if target - x in index:
+                return [index[target - x], i]
+            index[x] = i
