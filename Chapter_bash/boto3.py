@@ -92,3 +92,7 @@ response = s3.list_objects(Bucket='gid-staging')
 
 for obj in response['Contents']:
   	print(obj['Key'])    
+
+import boto3
+s3 = boto3.resource('s3')
+s3.meta.client.upload_file('/tmp/hello.txt', 'mybucket', 'hello.txt')
