@@ -7,3 +7,21 @@ console.log('Hello' + ' '+ 'World');
 console.log('Hello'.length); 
 
 const foo= 'Hello world'
+
+
+// Use .toUpperCase() to log 'Codecademy' in all uppercase letters
+console.log('Codecademy'.toUpperCase());
+console.log('    Remove whitespace   '.trim());
+
+console.log(Math.random()*100); //  create a random number with Math.random(), then multiply it by 100
+console.log(Math.floor(Math.random() * 100)); // create a random number with Math.random(), then multiply it by 100 and to make the output a whole number.
+console.log(Math.ceil(43.8)); //returns the smallest integer greater than or equal to a decimal number.
+console.log(Number.isInteger(2017)); //method on the built-in Number object that checks if a number is an integer.
+
+//how to use the var, let, and const keywords to create variables.
+
+var favoriteFood = 'pizza';
+console.log(favoriteFood);
+// Output: favoriteFood
+
+
