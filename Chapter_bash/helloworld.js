@@ -24,4 +24,20 @@ var favoriteFood = 'pizza';
 console.log(favoriteFood);
 // Output: favoriteFood
 
+var numOfSlices = 8 ;
+console.log(numOfSlices);
+// Output: favoriteFood
 
+//let can change whereas var cant
+let meal = 'Enchiladas';
+console.log(meal); // Output: Enchiladas
+meal = 'Burrito';
+console.log(meal); // Output: Burrito
+
+let changeMe = true;
+changeMe = false;
+console.log(changeMe); 
+
+//constant do not change
+const entree = 'Enchiladas';
+console.log(entree); // Output: Enchiladas
