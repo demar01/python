@@ -41,3 +41,17 @@ console.log(changeMe);
 //constant do not change
 const entree = 'Enchiladas';
 console.log(entree); // Output: Enchiladas
+
+let levelUp = 10;
+levelUp+=5
+console.log('The value of levelUp:', levelUp); 
+
+//Increment and decrement
+let gainedDollar = 3;
+let lostDollar = 50;
+
+gainedDollar++;
+console.log(gainedDollar); // Output: 4
+lostDollar--;
+console.log(lostDollar); // Output: 49
+
