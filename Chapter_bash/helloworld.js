@@ -55,3 +55,24 @@ console.log(gainedDollar); // Output: 4
 lostDollar--;
 console.log(lostDollar); // Output: 49
 
+//scring interpolation 
+const myName = 'Maria';
+const myCity = 'NYC';
+console.log(`My name is ${myName}. My favorite city is ${myCity}`);
+
+let newVariable = 'Playing around with typeof.';
+console.log(typeof newVariable); // Output: string
+newVariable=1
+console.log(typeof newVariable); // Output: string
+
+
+const cat = {
+    name: 'Pipey',
+    age: 8,
+    whatName() {
+      return this.name  
+    }
+  };
+   
+
+    
