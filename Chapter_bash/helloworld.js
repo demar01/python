@@ -74,5 +74,10 @@ const cat = {
     }
   };
    
+  console.log(cat.whatName()); 
 
+  let spaceship = {
+    numCrew: 5
+    };
+    var crewCount = spaceship.numCrew
     
