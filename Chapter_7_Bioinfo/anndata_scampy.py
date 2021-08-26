@@ -87,9 +87,11 @@ sample1.var['mt'] = sample1.var_names.str.startswith('MT-')  # annotate the grou
 sc.pp.calculate_qc_metrics(sample1, qc_vars=['mt'], percent_top=None, log1p=False, inplace=True)
 
 #Violin plot for some quality measurements
+#awesomely does a plot with grif for the columns selected. In this case a plot with 3 grids.
 sc.pl.violin(sample1, ['n_genes_by_counts', 'total_counts', 'pct_counts_mt'],
              jitter=0.4, multi_panel=True)
 
+#awesomely does a scatter plot  
 sc.pl.scatter(sample1, x='total_counts', y='pct_counts_mt')
 sc.pl.scatter(sample1, x='total_counts', y='n_genes_by_counts')
 
@@ -99,7 +101,15 @@ sample1 = sample1[sample1.obs.pct_counts_mt < 5, :]
 
 #Normalize it and log it
 sc.pp.normalize_total(sample1, target_sum=1e4)
+#log1p because there is a lot of 0
 sc.pp.log1p(sample1)
+
+#we can freeze the state of anndata sample 1
+#sample1.raw=sample1
+#and then to recover the raw andata to a anndata 
+#sample1.raw.toa_adata()
+
+
 
 #Identify high variable genes
 sc.pp.highly_variable_genes(sample1, min_mean=0.0125, max_mean=3, min_disp=0.5)
@@ -109,7 +119,9 @@ sc.pp.highly_variable_genes(sample1, min_mean=0.0125, max_mean=3, min_disp=0.5)
 sc.pp.regress_out(sample1, ['total_counts', 'pct_counts_mt'])
 
 
-#Scale each gene to unit variance. Clip values exceeding standard deviation 10.
+#Scale each gene to unit variance. 
+# This is going to normalized the columns (genes). so that the PCA is not highly biased to genes that are highly expressed.
+# Clip values exceeding standard deviation 10.
 sc.pp.scale(sample1, max_value=10)
 
 #Computing and embedding the neighborhood graph
@@ -123,9 +135,4 @@ tl.umap(sample1, init_pos='paga')
 sc.pl.umap(adata, color=['leiden', 'CST3', 'NKG7'])
 
 
-
-
-
-
-sc.pl.umap(adata, color='louvain')
 
