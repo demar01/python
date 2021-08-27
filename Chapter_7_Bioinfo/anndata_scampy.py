@@ -136,3 +136,7 @@ sc.pl.umap(adata, color=['leiden', 'CST3', 'NKG7'])
 
 
 
+### Trayectory inference
+adata = sc.datasets.paul15()
+adata.X = adata.X.astype('float64')  # this is not required and results will be comparable without it
+
