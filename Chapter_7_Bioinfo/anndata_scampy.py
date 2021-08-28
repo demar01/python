@@ -140,3 +140,21 @@ sc.pl.umap(adata, color=['leiden', 'CST3', 'NKG7'])
 adata = sc.datasets.paul15()
 adata.X = adata.X.astype('float64')  # this is not required and results will be comparable without it
 
+
+#Preprocessing and Visualization
+sc.pp.recipe_zheng17(adata)
+sc.tl.pca(adata, svd_solver='arpack')
+
+#when you run PCA it actually stores the output in .obsm
+adata.obsm["X_pca"].shape
+
+
+#scanpy uses X_pca matrix to compute cellxcell neighbors graph 
+#this is running UMAP behind the scenes
+sc.pp.neighbors(adata, n_neighbors=4, n_pcs=20)
+sc.tl.draw_graph(adata)
+sc.pl.draw_graph(adata, color='paul15_clusters', legend_loc='on data')
+
+#when you run neighbors it actually stores the output in .obsm
+adata.obsm["X_umap"].shape
+
