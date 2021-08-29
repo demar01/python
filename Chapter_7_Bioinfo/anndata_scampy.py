@@ -158,3 +158,11 @@ sc.pl.draw_graph(adata, color='paul15_clusters', legend_loc='on data')
 #when you run neighbors it actually stores the output in .obsm
 adata.obsm["X_umap"].shape
 
+
+#this plot looks very messy. It needs denoising 
+#To denoise the graph, we represent it in diffusion map space. This approach has been used in MAGIC
+#This is not a necessary step, neither for PAGA, nor clustering, nor pseudotime estimation. You might just as well go ahead with a non-denoised graph. In many situations (also here), this will give you very decent results.
+#the way to do this is by computing diffusion maps
+sc.tl.diffmap(adata)
+sc.pp.neighbors(adata, n_neighbors=10, use_rep='X_diffmap')
+
