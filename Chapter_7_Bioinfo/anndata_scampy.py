@@ -166,3 +166,26 @@ adata.obsm["X_umap"].shape
 sc.tl.diffmap(adata)
 sc.pp.neighbors(adata, n_neighbors=10, use_rep='X_diffmap')
 
+
+###Clustering and PAGA
+sc.tl.louvain(adata, resolution=1.0)
+#you can also use tl.leiden for clustering
+#the clustering can be restricted to a group for greater resotuion of cells within a cluster
+#sc.tl.leiden(restric_to= ,key_added="leiden_subclusters")
+sc.tl.paga(adata, groups='louvain')
+#Visualizing the distribution using known markers
+sc.pl.paga(adata, color=['louvain', 'Hba-a2', 'Elane', 'Irf8'])
+sc.pl.paga(adata, color=['louvain', 'Itga2b', 'Prss34', 'Cma1'])
+adata.obs['louvain'].cat.categories
+#annotate clusters using markers
+adata.obs['louvain_anno'].cat.categories = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10/Ery', '11', '12',
+       '13', '14', '15', '16/Stem', '17', '18', '19/Neu', '20/Mk', '21', '22/Baso', '23', '24/Mo']
+#using the annotated clusters for PAGA
+sc.tl.paga(adata, groups='louvain_anno')
+sc.pl.paga(adata, threshold=0.03, show=False)
+
+###Recomputing the embedding using PAGA-initialization
+sc.tl.draw_graph(adata, init_pos='paga')
+#we can see all marker genes also at single-cell resolution in a meaningful layout
+sc.pl.draw_graph(adata, color=['louvain_anno', 'Itga2b', 'Prss34', 'Cma1'], legend_loc='on data')
+#then we could change the colors
