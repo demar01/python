@@ -189,3 +189,24 @@ sc.tl.draw_graph(adata, init_pos='paga')
 #we can see all marker genes also at single-cell resolution in a meaningful layout
 sc.pl.draw_graph(adata, color=['louvain_anno', 'Itga2b', 'Prss34', 'Cma1'], legend_loc='on data')
 #then we could change the colors
+
+
+##Reconstructing gene changes along PAGA paths for a given set of genes
+#Choose a root cell for diffusion pseudotime.
+adata.uns['iroot'] = np.flatnonzero(adata.obs['louvain_anno']  == '16/Stem')[0]
+
+#Infer progression of cells through geodesic distance along the graph
+sc.tl.dpt(adata)
+
+#Select some of the marker gene names
+gene_names = ['Gata2', 'Gata1', 'Klf1', 'Epor', 'Hba-a2',  # erythroid
+              'Elane', 'Cebpe', 'Gfi1',                    # neutrophil
+              'Irf8', 'Csf1r', 'Ctsg']                     # monocyte
+
+
+#Use the full raw data for visualization 
+adata_raw = sc.datasets.paul15()
+sc.pp.log1p(adata_raw)
+sc.pp.scale(adata_raw)
+adata.raw = adata_raw
+
