@@ -210,3 +210,40 @@ sc.pp.log1p(adata_raw)
 sc.pp.scale(adata_raw)
 adata.raw = adata_raw
 
+
+## 3 Core plotting functions
+
+#Scatter plots for embeddings (eg. UMAP, t-SNE)
+#Identification of clusters using known marker genes
+#Visualization of differentially expressed genes
+
+#We can set up the settings for plotting at the beginning of the analysis
+sc.set_figure_params(dpi=100, color_map = 'viridis_r')
+sc.settings.verbosity = 1
+sc.logging.print_header()
+
+pbmc = sc.datasets.pbmc68k_reduced()
+import anndata
+mouse_brain = anndata.read_h5ad("mouse_brain_s_anndata.h5ad")
+mouse_brain.var_names #notice that because they are mouse genes they are in sentence case
+
+with rc_context({'figure.figsize': (4, 4)}):
+    sc.pl.umap(pbmc, color='CD79A')
+
+with rc_context({'figure.figsize': (4, 4)}):
+    sc.pl.umap(mouse_brain, color='Runx1')
+
+#See what else we can plot 
+mouse_brain.obs.columns
+with rc_context({'figure.figsize': (3, 3)}):
+    sc.pl.umap(mouse_brain, color=['Runx1', 'Klf7', 'Isl2', 'seurat_clusters','nCount_RNA'], s=50, frameon=False, ncols=4, vmax='p99')
+
+sc.pl.umap(mouse_brain, color=['Klf7'],save = '_test2.png' )
+
+
+marker_genes_dict = {
+    'DRG': ['Runx1', 'Isl2'],
+    'Other':['Klf7']
+}
+
+
