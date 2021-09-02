@@ -246,4 +246,27 @@ marker_genes_dict = {
     'Other':['Klf7']
 }
 
+sc.pl.dotplot(mouse_brain, marker_genes_dict, 'seurat_clusters', dendrogram=True)
+
+#Say that I want to keep only cluster 23
+mouse_brain.obs['seurat_clusters'].cat.categories
+mouse_brain_new = mouse_brain[mouse_brain.obs['seurat_clusters'].isin(['23']),:]
+sc.pl.dotplot(mouse_brain_new, marker_genes_dict, 'celltype', dendrogram=False)
+
+#This information can be used to manually annotate the cells as follows
+cluster2annotation = {
+     '0': 'Monocytes',
+     '1': 'Dendritic',
+     '2': 'T-cell',
+     '3': 'NK',
+     '4': 'B-cell',
+     '5': 'Dendritic',
+     '6': 'Plasma',
+     '7': 'Other',
+     '8': 'Dendritic',
+}
+
+
+
+
 
