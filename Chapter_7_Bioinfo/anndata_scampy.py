@@ -266,7 +266,17 @@ cluster2annotation = {
      '8': 'Dendritic',
 }
 
+# add a new `.obs` column called `cell type` by mapping clusters to annotation using pandas `map` function
+pbmc.obs['cell type'] = pbmc.obs['clusters'].map(cluster2annotation).astype('category')
 
+#Violin plots
+with rc_context({'figure.figsize': (4.5, 3)}):
+    sc.pl.violin(mouse_brain, ['Runx1', 'Isl2'], groupby='seurat_clusters' )
 
+#stacked violin plot
+ax = sc.pl.stacked_violin(mouse_brain, marker_genes_dict, groupby='seurat_clusters', swap_axes=False, dendrogram=True)
 
+#Comparison of marker genes using split violin plots
+with rc_context({'figure.figsize': (9, 1.5)}):
+    sc.pl.rank_genes_groups_violin(mouse_brain, n_genes=20, jitter=False)
 
