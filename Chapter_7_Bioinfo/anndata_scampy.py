@@ -280,3 +280,15 @@ ax = sc.pl.stacked_violin(mouse_brain, marker_genes_dict, groupby='seurat_cluste
 with rc_context({'figure.figsize': (9, 1.5)}):
     sc.pl.rank_genes_groups_violin(mouse_brain, n_genes=20, jitter=False)
 
+
+#check scanpy version 
+sc.logging.print_versions()
+
+
+#https://www.youtube.com/watch?v=EKTg9NV5hEA
+#adata.var_names
+
+#you can get information for a given gene
+adata[:,'Zyx']
+adata[:,'Zyx'].X.shape
+adata[:,'Zyx'].obs
