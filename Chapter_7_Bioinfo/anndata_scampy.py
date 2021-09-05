@@ -292,3 +292,32 @@ sc.logging.print_versions()
 adata[:,'Zyx']
 adata[:,'Zyx'].X.shape
 adata[:,'Zyx'].obs
+
+#layers
+#https://anndata.readthedocs.io/en/latest/anndata.AnnData.layers.html
+#it short of goes on top of 
+
+
+
+
+##integrating-data-using-bbknn and ingest
+##data integration. Basically integrate replicates with the aim of 
+#finding biological variation that is not technical varioation 
+#bbknn
+
+#Interoperability with scvi tools 
+import scvi
+
+#See https://docs.scvi-tools.org/en/stable/user_guide/notebooks/api_overview.html
+
+# tell scvi where to get the data
+adata = scvi.data.heart_cell_atlas_subsampled()
+
+
+##Differential expresion in scanpy 
+#rank_genes_groups
+adata = sc.datasets.pbmc68k_reduced()
+sc.tl.rank_genes_groups(adata, 'bulk_labels', method='wilcoxon')
+# to visualize the results
+sc.pl.rank_genes_groups(adata)
+
