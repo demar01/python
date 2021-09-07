@@ -313,6 +313,15 @@ import scvi
 # tell scvi where to get the data
 adata = scvi.data.heart_cell_atlas_subsampled()
 
+sc.pp.filter_genes(adata, min_counts=3)
+
+#In scivitools we do not need normalized data. We just stored it in a raw
+adata.layers["counts"] = adata.X.copy() # preserve counts
+sc.pp.normalize_total(adata, target_sum=1e4)
+sc.pp.log1p(adata)
+adata.raw = adata # freeze the state in `.raw`
+
+
 
 ##Differential expresion in scanpy 
 #rank_genes_groups
