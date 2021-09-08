@@ -321,6 +321,24 @@ sc.pp.normalize_total(adata, target_sum=1e4)
 sc.pp.log1p(adata)
 adata.raw = adata # freeze the state in `.raw`
 
+#Feature selection to reduce the number of features (genes) we recommend anywhere from 1,000 to 10,000 HVGs
+sc.pp.highly_variable_genes(
+    adata,
+    n_top_genes=1200,
+    subset=True,
+    layer="counts",
+    flavor="seurat_v3",
+    batch_key="cell_source"
+)
+
+#setup_anndata(), which alerts scvi-tools to the locations of various matrices inside the anndata that we need to do batch correction for
+scvi.data.setup_anndata(
+    adata,
+    layer="counts",
+    categorical_covariate_keys=["cell_source", "donor"],
+    continuous_covariate_keys=["percent_mito", "percent_ribo"]
+)
+
 
 
 ##Differential expresion in scanpy 
