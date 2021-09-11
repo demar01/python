@@ -342,6 +342,8 @@ scvi.data.setup_anndata(
 
 
 
+
+
 ##Differential expresion in scanpy 
 #rank_genes_groups
 adata = sc.datasets.pbmc68k_reduced()
