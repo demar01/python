@@ -340,9 +340,8 @@ scvi.data.setup_anndata(
 )
 
 
-
-
-
+#Concat anndata
+inner = ad.concat([a, b])  # Joining on intersection of variables
 
 ##Differential expresion in scanpy 
 #rank_genes_groups
