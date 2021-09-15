@@ -350,8 +350,6 @@ sc.tl.rank_genes_groups(adata, 'bulk_labels', method='wilcoxon')
 # to visualize the results
 sc.pl.rank_genes_groups(adata)
 
-
-
 #scArches trVAE
 url = 'https://drive.google.com/uc?id=1ehxgfHTsMZXy6YzlFKGJOsBKQ5rrvMnd'
 output = 'pancreas.h5ad'
