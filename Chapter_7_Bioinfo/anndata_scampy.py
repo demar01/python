@@ -339,7 +339,6 @@ scvi.data.setup_anndata(
     continuous_covariate_keys=["percent_mito", "percent_ribo"]
 )
 
-
 #Concat anndata
 inner = ad.concat([a, b])  # Joining on intersection of variables
 
